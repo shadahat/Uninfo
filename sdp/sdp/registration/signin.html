@@ -1,0 +1,22 @@
+{% comment %} Author : Nowshad {% endcomment %}
+
+{% extends 'signup.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+h2
+{
+    color: white;
+}
+</style>
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}
+
+

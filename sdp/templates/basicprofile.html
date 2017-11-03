@@ -1,0 +1,56 @@
+{% comment %} Author : Shahin {% endcomment %}
+
+<html>
+<style>
+body {
+    background-position: top;
+    background-image: url(https://imgur.com/AzRKtjw.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+</style>
+
+    <head>
+        <form method="get" action="http://127.0.0.1:8000/Login/loginn" style="align: right">
+        </form>
+        <form style=" padding-left: 1050px;" method="get" action="http://127.0.0.1:8000/Login/{{ student.id }}">
+        </form>
+        <div style="padding-left: 1100px; padding-right: 0px; padding-top: 15px ">
+        </div>
+        <br>
+
+        <h1 style="padding-left: 50px">{{student.name}}</h1>
+        <div style="padding-left: 50px;">
+        <p> <strong> {{ student.headline }} </strong> </p>
+        <p> <strong>University : </strong>{{ student.department.university.name }} </p>
+        <p>  <strong>Department :  </strong>{{ student.department.name }} </p>
+        <p>  <strong>School : </strong> {{ student.school.name }} </p>
+        <p>  <strong>College : </strong> {{ student.college.name }} </p>
+        <h3>Present Address</h3>
+            <p style="padding-left: 50px;">  <strong>Country : </strong> {{ student.address.country }} </p>
+            <p style="padding-left: 50px;">  <strong>City : </strong> {{ student.address.city }} </p>
+            <p style="padding-left: 50px;">  <strong>Area : </strong> {{ student.address.area }} </p>
+        <p>  <strong>Date of Birth : </strong> {{ student.dob }} </p>
+        <p>  <strong>Batch :  </strong>{{ student.year_of_enrollment }} </p>
+        <p>  <strong>Email :  </strong>{{ student.mail_id }} </p>
+
+
+        {% if student.industry == '' %}
+        {% else %}
+            <p> <strong> Industry : </strong> {{ student.industry }} </p>
+        {% endif %}
+
+        {% if student.summary == '' %}
+        {% else %}
+            <p> <strong> Summary : </strong> {{ student.summary }} </p>
+        {% endif %}
+
+        </div>
+    </head>
+
+    <body>
+        <div id="top_x_div" style="width: 900px; height: 450px;"></div>
+
+    </body>
+
+</html>

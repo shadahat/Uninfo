@@ -1,0 +1,97 @@
+{% comment %} Author : Nowshad {% endcomment %}
+
+{% load staticfiles %}
+<html>
+<head>
+{% block additional_styles %}
+<style>
+body {
+	background-image: url(https://i.imgur.com/J4RUU2R.jpg);
+	background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100%;
+    background-attachment: fixed;
+
+}
+</style>
+{% endblock %}
+<title>{% block title %}NameSearch{% endblock %}</title>
+</head>
+<body>
+    <div class="boxed1">
+        Filtered by:
+    </div>
+
+    <div class="boxed">
+        University
+    </div>
+    <div class="boxed2">
+        Filtered by:
+    </div>
+
+    <div class="boxed3">
+        Depatment
+    </div>
+    <div class="search">
+        <form class="form-horizontal" action="" method = "post" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="select">
+                        {{ form.as_p }}
+                </div>
+
+        </form>
+    </div>
+    </div>
+    <div class="list">
+        <h2> Avaiable Students</h2>
+        <ul>
+            {%  for p in model %}
+                {% if p.department.id == unid %}
+                         <li><a href="http://127.0.0.1:8000/Login/search/basicprofile/{{ p.id }}">{{ p.name }}</a> </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+<style>
+.search {
+    position: absolute;
+	left:400px;
+ }
+.list{
+    position: absolute;
+    top:100px;
+}
+.boxed1{
+    position: absolute;
+    top:25px;
+}
+.boxed {
+    position: absolute;
+    top:25px;
+    left:90px;
+    width:100px;
+	height:20px;
+    border: 1px ;
+    background:#b2bdb5
+
+}
+.boxed2{
+    position: absolute;
+    top:25px;
+    left:210px;
+}
+
+.boxed3{
+    position: absolute;
+    top:25px;
+    left:290px;
+    width:100px;
+	height:20px;
+    border: 1px ;
+    background:#b2bdb5
+}
+
+</style>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% comment %} Author : Noboni {% endcomment %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+{% block additional_styles %}
+<style>
+body { 
+	background-image: url("https://i.imgur.com/aIrdZ1S.jpg");
+	background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100%;
+    background-attachment: fixed;
+
+}
+</style>
+{% endblock %}
+<title>{% block title %}Sign-In{% endblock %}</title>
+</head>
+<body>
+<h2 style="position:absolute; top:180px; left:615px;"><span style="color:blue">LogIn</span></h2>
+	<div class="container">
+        <div class ="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-7">
+                    <div class="panel panel-default">
+                        <div class ="panel-body">
+
+                            <form class="form-horizontal" action="" method = "post"  enctype="multipart/form-data">
+
+                                {% csrf_token %}
+                                {% include 'form-template.html' %}
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 com-sm-10">
+                                        <button type="submit" class="btn btn-success"><b>Submit</b></button>
+                                    </div>
+                                </div>
+
+                            </form>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<style>
+input {
+    background-color: white;
+    color: black;
+    padding:14px 20px;
+    margin: 8px 0;
+    
+    cursor: pointer;
+    width: 100%;
+}
+button{
+    background-color: blue;
+    color:white;
+    position:absolute;
+    left:500px;
+    padding-top: 20px;
+    padding-right:170px;
+    padding-left: 120px;
+    padding-bottom: 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width:10%;
+
+    
+}
+.container {
+	padding-top: 220px;
+	padding-right:510px;
+	padding-left: 470px;
+}
+</style>
+</body>
+</html>

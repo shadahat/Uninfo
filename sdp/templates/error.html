@@ -1,0 +1,49 @@
+{% comment %} Author : Shahin {% endcomment %}
+
+
+{% load staticfiles %}
+<html>
+<head>
+{% block additional_styles %}
+<style>
+body {
+	background-image: url(https://i.imgur.com/J4RUU2R.jpg);
+	background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100%;
+    background-attachment: fixed;
+
+}
+</style>
+{% endblock %}
+<title>{% block title %}Linkedin Update Notice!{% endblock %}</title>
+</head>
+<body>
+<div style="padding-top:150px; padding-left: 350px">
+<h1>Please, login again to see your updates.</h1> 
+</div>
+<div class ="container">
+<form action="http://127.0.0.1:8000/Login/loginn">
+<button  type="submit" class="studentbtn"><b>Login</b></button>
+</form>
+</div>
+<style>
+button {
+    postion: absolute;
+    color: black;
+    background-color: #1EA8FF;
+    height: 40px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+}
+.container {
+    postion: absolute;
+	padding-top: 50px;
+	right:50px;
+	padding-left: 480px;
+}
+</style>
+</body>
+</html>

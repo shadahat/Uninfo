@@ -1,0 +1,93 @@
+{% comment %} Author : Shahin {% endcomment %}
+
+<html>
+<style>
+body {
+    background-position: top;
+    background-image: url(https://imgur.com/AzRKtjw.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+</style>
+
+    <head>
+        <form method="get" action="http://127.0.0.1:8000/Login/loginn" style="align: right">
+        <button style="position: absolute; right: 0; height: 30px; width: 100px;" type="submit" class="btn btn-success"><b>Logout</b></button>
+        </form>
+        <form style=" padding-left: 1050px;" method="get" action="http://127.0.0.1:8000/Login/{{ student.id }}">
+        <button style=" height: 30px; width: 100px;" type="submit" class="btn btn-success"><b>Edit Profile</b></button>
+        </form>
+        <div style="padding-left: 1100px; padding-right: 0px; padding-top: 15px ">
+        {% include 'registration/login.html' %}
+        </div>
+        <br>
+
+        <h1 style="padding-left: 50px">{{student.name}}</h1>
+        <div style="padding-left: 50px;">
+        <p> <strong> {{ student.headline }} </strong> </p>
+        <p> <strong>University : </strong>{{ student.department.university.name }} </p>
+        <p>  <strong>Department :  </strong>{{ student.department.name }} </p>
+        <p>  <strong>School : </strong> {{ student.school.name }} </p>
+        <p>  <strong>College : </strong> {{ student.college.name }} </p>
+        <h3>Present Address</h3>
+            <p style="padding-left: 50px;">  <strong>Country : </strong> {{ student.address.country }} </p>
+            <p style="padding-left: 50px;">  <strong>City : </strong> {{ student.address.city }} </p>
+            <p style="padding-left: 50px;">  <strong>Area : </strong> {{ student.address.area }} </p>
+        <p>  <strong>Date of Birth : </strong> {{ student.dob }} </p>
+        <p>  <strong>Batch :  </strong>{{ student.year_of_enrollment }} </p>
+        <p>  <strong>Email :  </strong>{{ student.mail_id }} </p>
+
+
+        {% if student.industry == '' %}
+        {% else %}
+            <p> <strong> Industry : </strong> {{ student.industry }} </p>
+        {% endif %}
+
+        {% if student.summary == '' %}
+        {% else %}
+            <p> <strong> Summary : </strong> {{ student.summary }} </p>
+        {% endif %}
+
+
+
+
+         <h3>Result</h3>
+
+        <p style="padding-left: 50px;"><strong> CGPA :</strong> {{ cgpa }} </p>
+        </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+            var data = new google.visualization.arrayToDataTable({{ list|safe }});
+
+            var options = {
+                title: 'Chess opening moves',
+                width: 850,
+                legend: { position: 'none' },
+                chart: {    title: 'Bar Chart Of Result',
+                            subtitle: 'popularity by percentage' },
+                bars: 'horizontal', // Required for Material Bar Charts.
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'GPA'} // Top x-axis.
+                        }
+                },
+                bar: { groupWidth: "90%" }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(data, options);
+        };
+    </script>
+    </head>
+
+    <body>
+        <div id="top_x_div" style="width: 900px; height: 450px;"></div>
+
+    </body>
+
+</html>
