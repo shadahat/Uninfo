@@ -1,0 +1,324 @@
+go to project directory
+
+python3 manage.py shell
+
+
+
+from Login.models import Student, University, School, College, Department, Address , Course , Result
+
+
+
+s = School( name = 'Ashuganj Sar Karkhana College' )
+s.save()
+s = School( name = 'Saint Joseph School and College' )
+s.save()
+s = School( name = 'Mothijheel Model High School' )
+s.save()
+s = School( name = 'Motijheel Government Girls High School' )
+s.save()
+s = School( name = 'Motijheel Government Boys High School' )
+s.save()
+s = School( name = 'Rajuk Uttara Model College' )
+s.save()
+s = School( name = 'BAF Shaheen College' )
+s.save()
+s = School( name = 'Holy Cross School and College' )
+s.save()
+s = School( name = 'Dhaka Residential Model College' )
+s.save()
+s = School( name = 'Viqarunnisa Noon School and College' )
+s.save()
+
+
+
+
+
+
+c = College( name = 'Notre Dame College' )
+c.save()
+c = College( name = 'Saint Joseph School and College' )
+c.save()
+c = College( name = 'Dhaka College' )
+c.save()
+c = College( name = 'Dhaka City College' )
+c.save()
+c = College( name = 'Rajuk Uttara Model College' )
+c.save()
+c = College( name = 'BAF Shaheen College' )
+c.save()
+c = College( name = 'Holy Cross School and College' )
+c.save()
+c = College( name = 'Dhaka Residential Model College' )
+c.save()
+c = College( name = 'Viqarunnisa Noon School and College' )
+c.save()
+
+
+
+
+u = University( name = 'University of Dhaka' )
+u.save()
+u = University( name = 'University of Chittagong' )
+u.save()
+u = University( name = 'University of Rajshahi' )
+u.save()
+u = University( name = 'North South University' )
+u.save()
+u = University( name = 'BRAC University' )
+u.save()
+u = University( name = 'Shahjala University of Science and Technology' )
+u.save()
+u = University( name = 'Bangladesh University of Engineering and Technology' )
+u.save()
+u = University( name = 'Chittagong University of Engineering and Technology' )
+u.save()
+u = University( name = 'Khulna University of Engineering and Technology' )
+u.save()
+u = University( name = 'Rajshahi University of Engineering and Technology' )
+u.save()
+
+
+
+
+u = University.objects.get( name = "University of Dhaka" )
+
+
+d = Department( name = 'Chemistry' , university = u )
+d.save()
+d = Department( name = 'Physics' , university = u )
+d.save()
+d = Department( name = 'Microbiology' , university = u )
+d.save()
+d = Department( name = 'Genetic Engineering and Biotechnology' , university = u )
+d.save()
+d = Department( name = 'Neuclear Engineering' , university = u )
+d.save()
+d = Department( name = 'Electrical and Electronics Engineering' , university = u )
+d.save()
+d = Department( name = 'Software Engineering' , university = u )
+d.save()
+d = Department( name = 'Computer Science and Engineering' , university = u )
+d.save()
+d = Department( name = 'Mathematics' , university = u )
+d.save()
+d = Department( name = 'Applied Mathematics' , university = u )
+d.save()
+u = University.objects.get( name = "University of Rajshahi" )
+d = Department( name = 'Computer Science and Engineering' , university = u )
+d.save()
+
+
+
+
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Kamalapur' , street_no = '' , house_no = '' )
+a.save()
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Shantinagar' , street_no = '' , house_no = '' )
+a.save()
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Malibag' , street_no = '' , house_no = '' )
+a.save()
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Mohammadpur' , street_no = '' , house_no = '' )
+a.save()
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Dhanmondi' , street_no = '' , house_no = '' )
+a.save()
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Nakhalpara' , street_no = '' , house_no = '' )
+a.save()
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Cantonment' , street_no = '' , house_no = '' )
+a.save()
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Chankharpul' , street_no = '' , house_no = '' )
+a.save()
+a = Address( country = 'Bangladesh' , city = 'Dhaka' , area = 'Jatrabari' , street_no = '' , house_no = '' )
+a.save()
+
+
+
+
+u = University.objects.get( name = "University of Dhaka" )
+s = School.objects.get( name = "Ashuganj Sar Karkhana College" )
+c = College.objects.get( name = "Notre Dame College" )
+d = Department.objects.get( name="Computer Science and Engineering" , university = u )
+a = Address.objects.get( country = "Bangladesh" , area="Kamalapur",city="Dhaka")
+
+stu = Student(	name = 'Md. Shahadat Hossain Shahin',
+		user_id = 'shahin',
+		password = 'shahinpass',
+		mail_id = 'shshahin065@gmail.com',
+		dob = '1997-05-21',
+		department = d,
+		school = s,
+		college = c,
+		year_of_enrollment = 2015,
+		address = a,)
+stu.save()
+
+u = University.objects.get( name = 'University of Dhaka' )
+s = School.objects.get( name = 'Motijheel Government Girls High School' )
+c = College.objects.get( name = 'Holy Cross School and College' )
+d = Department.objects.get( name = 'Computer Science and Engineering' , university = u )
+a = Address.objects.get( country = "Bangladesh" , area = 'Malibag' , city = "Dhaka")
+
+stu = Student(	name = 'Fariha Hossain',
+		user_id = 'fariha',
+		password = 'farihapass',
+		mail_id = 'fariha@gmail.com',
+		dob = '1997-09-10',
+		department = d,
+		school = s,
+		college = c,
+		year_of_enrollment = 2015,
+		address = a,)
+stu.save()
+
+
+u = University.objects.get( name = 'University of Dhaka' )
+s = School.objects.get( name = 'Motijheel Government Boys High School' )
+c = College.objects.get( name = 'Dhaka Residential Model College' )
+d = Department.objects.get( name = 'Computer Science and Engineering' , university = u )
+a = Address.objects.get( country = "Bangladesh" , area = 'Mohammadpur' , city = "Dhaka")
+
+stu = Student(	name = 'Amar Debnath',
+		user_id = 'amar',
+		password = 'amarpass',
+		mail_id = 'amar@gmail.com',
+		dob = '1999-07-11',
+		department = d,
+		school = s,
+		college = c,
+		year_of_enrollment = 2017,
+		address = a)
+stu.save()
+
+u = University.objects.get( name = 'University of Dhaka' )
+s = School.objects.get( name = 'Motijheel Government Boys High School' )
+c = College.objects.get( name = 'Dhaka Residential Model College' )
+d = Department.objects.get( name = 'Computer Science and Engineering' , university = u )
+a = Address.objects.get( country = "Bangladesh" , area = 'Chankharpul' , city = "Dhaka")
+
+stu = Student(	name = 'Abu Nowshad Asif',
+		user_id = 'abu',
+		password = 'abupass',
+		mail_id = 'abu@gmail.com',
+		dob = '1995-07-11',
+		department = d,
+		school = s,
+		college = c,
+		year_of_enrollment = 2015,
+		address = a)
+stu.save()
+
+
+u = University.objects.get( name = 'University of Dhaka' )
+s = School.objects.get( name = 'Mothijheel Model High School' )
+c = College.objects.get( name = 'Rajuk Uttara Model College' )
+d = Department.objects.get( name = 'Electrical and Electronics Engineering' , university = u )
+a = Address.objects.get( country = "Bangladesh" , area = 'Chankharpul' , city = "Dhaka")
+
+stu = Student(	name = 'Mr. Shoummo',
+		user_id = 'shoummo',
+		password = 'shoummopass',
+		mail_id = 'shoummo@gmail.com',
+		dob = '1997-03-11',
+		department = d,
+		school = s,
+		college = c,
+		year_of_enrollment = 2015,
+		address = a)
+stu.save()
+
+u = University.objects.get( name = "University of Rajshahi" )
+s = School.objects.get( name = "Ashuganj Sar Karkhana College" )
+c = College.objects.get(name = "BAF Shaheen College" )
+d = Department.objects.get( name = "Computer Science and Engineering" , university = u )
+a = Address.objects.get( country = "Bangladesh" , area = "Kamalapur",city = "Dhaka" )
+
+stu = Student(	name = 'Md. Sadiqul Amin',
+		user_id = 'sadiqul',
+		password = 'sadiqulpass',
+		mail_id = 'sadiqul@gmail.com',
+		dob = '1997-07-25',
+		department = d,
+		school = s,
+		college = c,
+		year_of_enrollment = 2015,
+		address = a)
+stu.save()
+
+
+
+u = University.objects.get( name = 'University of Dhaka' )
+d = Department.objects.get( name = 'Computer Science and Engineering', university = u )
+
+c = Course( name = 'Fundamentals of Computers and Computing' , course_code = 'CSE-1101' , credit = 2 , type = 'Theory' , department = d )
+c.save()
+c = Course( name = 'Discrete Mathematics' , course_code = 'CSE-1102' , credit = 3 , type = 'Theory' , department = d )
+c.save()
+c = Course( name = 'Electrical Circuits' , course_code = 'EEE-1103' , credit = 3 , type = 'Theory' , department = d )
+c.save()
+c = Course( name = 'Physics' , course_code = 'PHY-1104' , credit = 3 , type = 'Theory' , department = d )
+c.save()
+c = Course( name = 'Differential and Integral Calculus' , course_code = 'MATH-1105' , credit = 3 , type = 'Theory' , department = d )
+c.save()
+c = Course( name = 'Fundamentals of Computer and Computing Lab' , course_code = 'CSE-1111' , credit = 1.5 , type = 'Lab' , department = d )
+c.save()
+c = Course( name = 'Electrical Circuits Lab' , course_code = 'EEE-1113' , credit = 1.5 , type = 'Lab' , department = d )
+c.save()
+
+
+
+
+
+
+
+s = Student.objects.get( user_id = 'shahin' )
+u = University.objects.get( name = 'University of Dhaka' )
+d = Department.objects.get( name = 'Computer Science and Engineering' , university = u )
+
+c = Course.objects.get( course_code = 'CSE-1101' , department = d )
+r = Result( student = s, course = c , gpa = 3.5 )
+r.save()
+c = Course.objects.get( course_code = 'CSE-1102' , department = d )
+r = Result( student = s, course = c , gpa = 4 )
+r.save()
+c = Course.objects.get( course_code = 'EEE-1103' , department = d )
+r = Result( student = s, course = c , gpa = 4 )
+r.save()
+c = Course.objects.get( course_code = 'PHY-1104' , department = d )
+r = Result( student = s, course = c , gpa = 3.5 )
+r.save()
+c = Course.objects.get( course_code = 'MATH-1105' , department = d )
+r = Result( student = s, course = c , gpa = 3.75 )
+r.save()
+c = Course.objects.get( course_code = 'CSE-1111' , department = d )
+r = Result( student = s, course = c , gpa = 4 )
+r.save()
+c = Course.objects.get( course_code = 'EEE-1113' , department = d )
+r = Result( student = s, course = c , gpa = 4 )
+r.save()
+
+
+s = Student.objects.get( user_id = 'fariha' )
+u = University.objects.get( name = 'University of Dhaka' )
+d = Department.objects.get( name = 'Computer Science and Engineering' , university = u )
+
+c = Course.objects.get( course_code = 'CSE-1101' , department = d )
+r = Result( student = s, course = c , gpa = 3.75 )
+r.save()
+c = Course.objects.get( course_code = 'CSE-1102' , department = d )
+r = Result( student = s, course = c , gpa = 4 )
+r.save()
+c = Course.objects.get( course_code = 'EEE-1103' , department = d )
+r = Result( student = s, course = c , gpa = 3.75 )
+r.save()
+c = Course.objects.get( course_code = 'PHY-1104' , department = d )
+r = Result( student = s, course = c , gpa = 3.75 )
+r.save()
+c = Course.objects.get( course_code = 'MATH-1105' , department = d )
+r = Result( student = s, course = c , gpa = 3.5 )
+r.save()
+c = Course.objects.get( course_code = 'CSE-1111' , department = d )
+r = Result( student = s, course = c , gpa = 4 )
+r.save()
+c = Course.objects.get( course_code = 'EEE-1113' , department = d )
+r = Result( student = s, course = c , gpa = 4 )
+r.save()
+
+
